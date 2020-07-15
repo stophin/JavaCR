@@ -1,0 +1,37 @@
+使用方法：
+---------------------------------------------------------------------------
+例程:使用文件：a.java，a.class，1.txt，javac参数pa1，java参数pa2
+a-----------------运行javac a.java，java a.class
+a pa1,pa2---------运行javac a.java pa1，java a.class pa2
+a>1.txt-----------运行javac a.java，java a.class>1.txt，1.txt必须存在
+a>>1.txt----------运行javac a.java，java a.class>>1.txt，1.txt可以创建或添加
+a>1.txt pa1,pa2---运行javac a.java pa1，java a.class>1.txt pa2
+a pa1,pa2>1.txt---同上,>必须在pa2后面
+a>>1.txt pa1,pa2--运行javac a.java pa1，java a.class>>1.txt pa2
+a pa1,pa2>>1.txt--同上,>>必须在pa2后面
+---------------------------------------------------------------------------
+注意:1.文件名a.java不能有空格，否则JAVA不支持。
+       (Windows虽然支持含空格文件，但JAVA编译器不支持含有空格的类)
+     2.写变量pa1,pa2时，如果没有pa1那么可以写成,pa2
+       或者先不写变量，编译完后直接双击class文件再输入变量运行。
+---------------------------------------------------------------------------
+包应用:双击D:\javawork space\下的PackageDemo.java文件，然后在引号后输入
+"D:\work space\PackageDemo.java" $-d . ,$onlyfun.caterpillar.
+相当于:
+javac -d . PackageDemo.java
+java onlyfun.caterpillar.PackageDemo
+---------------------------------------------------------------------------
+"D:\work space\PackageDemo.java" $-d . ,>>1.txt$onlyfun.caterpillar.
+相当于:
+javac -d . PackageDemo.java
+java onlyfun.caterpillar.PackageDemo >>1.txt
+---------------------------------------------------------------------------
+java和class要在不同文件夹生成:
+(比如PackageDemo.java文件放在"./src"文件夹里，生成的.class文件放在
+"./classes"文件夹里,由于是包文件，.class实际生成在
+./classes下onlyfun/caterpillar文件夹里)
+PackageDemo $-d ./classes ./src/,$-cp ./classes onlyfun.caterpillar.
+相当于:
+	javac -d ./classes ./src/PackageDemo.java
+	java -cp ./classes onlyfun.caterpillar.PackageDemo
+---------------------------------------------------------------------------

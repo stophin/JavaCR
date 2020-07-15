@@ -1,0 +1,12 @@
+【文件关联说明】
+
+如果以前没有使用过本程序打开.java和.class文件，需要设置打开关联。
+请右键任何.java\.class文件，选择"打开方式"，然后定位到
+D:\Java\PreLoader.exe
+勾选"始终使用选择的程序打开这种文件"，确定即可。
+
+如果浏览定位以后点确定，而本exe程序没有添加到列表里，请到注册表编辑器里，找到
+HKEY_CLASSES_ROOT\Applications\PreLoader.exe\shell\open\command
+将其默认路径改为
+"D:\Java\PreLoader.exe" "%1"
+然后重新定位以关联文件。
